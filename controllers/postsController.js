@@ -36,7 +36,7 @@ function modify(req, res) {
 }
 
 function destroy(req, res) {
-    res.send(`Cancellazione del post` + req.params.id);
+    res.send(`Cancellazione del post n° ` + req.params.id);
 }
 
 // esporto

@@ -5,6 +5,7 @@ const router = express.Router();
 // Importiamo le funzioni del controller
 const postController = require('../controllers/postsController');
 
+
 // Rotte CRUD
 // index
 router.get('/', postController.index);
