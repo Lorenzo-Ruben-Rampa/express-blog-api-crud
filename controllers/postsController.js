@@ -10,18 +10,29 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    const postId = req.params.id;
-    const foundPost = posts.find(post => post.id == postId);
+     // recuperiamo l'id dall' URL e trasformiamolo in numero
+     const id = parseInt(req.params.id)
 
-    if (foundPost) {
-        res.json({
-            message: `Dettagli del post n° ${postId}`,
-            post: foundPost
-        });
-    } else {
-        res.status(404).json({ message: "Post non trovato" });
-    }
-}
+     // cerchiamo il post tramite id
+     const post = menu.find(post => post.id === id);
+ 
+     // Condizione if
+     if (!post) {
+ 
+         // ritorno lo stato di errore 404, non trovato
+         res.status(404);
+ 
+         // ritorno un messaggio di errore (formato json)
+         return res.json({
+             error: "Not Found",
+             message: "Post non trovato"
+         })
+     }
+ 
+     // Restituiamolo sotto forma di JSON   
+     res.json(post);
+ }
+ 
 
 function store(req, res) {
     res.send(`Creazione nuovo post`);
