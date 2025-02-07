@@ -1,5 +1,4 @@
 # express-blog-api-crud
-
 Esercizio
 Milestone 1
 Come prima cosa, creiamo un controller per i nostri post, in una cartella controllers.
