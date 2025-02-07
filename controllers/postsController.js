@@ -3,11 +3,24 @@ const menu = require('../data/posts');
 
 // Funzioni con logica relativa alla rotta dei post
 function index(req, res) {
-    res.json({
-        message: "Lista dei post",
-        posts: menu
-    });
-}
+    // res.json({
+    //     message: "Lista dei post",
+    //     posts: menu
+    // });
+
+     //Ora il menu filtrato = menu originale
+     let filteredMenu = menu;
+
+     // Se la richiesta contiene un filtro tag, filtro il menu
+     if (req.query.tag) {
+         filteredMenu = menu.filter(
+             post => post.tags.includes(req.query.tag)
+         );
+     }
+ 
+     // restituiamo la variabile filteredMenu, che sia filtrata o meno
+     res.json(filteredMenu);
+ }
 
 function show(req, res) {
      // recuperiamo l'id dall' URL e trasformiamolo in numero
