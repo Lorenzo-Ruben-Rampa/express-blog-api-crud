@@ -47,7 +47,9 @@ function modify(req, res) {
 }
 
 function destroy(req, res) {
-    res.send(`Cancellazione del post n° ` + req.params.id);
+      // recuperiamo l'id dall' URL e trasformiamolo in numero
+      const id = parseInt(req.params.id)
+      
 }
 
 // esporto
