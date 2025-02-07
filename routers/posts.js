@@ -3,18 +3,7 @@ const express = require('express')
 const router = express.Router();
 
 // Importiamo le funzioni del controller
-const postController = require('../controllers/pizzaController');
-
-router.get('/', function (req, res) {
-	res.send('Lista dei post');
-});
-router.get('/:id', function(req, res) {
-	res.send(`Dettagli dei post` + req.params.id);
-});
-
-router.post('/', function(req, res) {
-	res.send('Creazione nuovi post');
-});
+const postController = require('../controllers/postsController');
 
 // Rotte CRUD
 // index

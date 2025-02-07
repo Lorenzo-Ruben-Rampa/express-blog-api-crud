@@ -5,7 +5,7 @@ const menu = require('../data/posts');
 function index(req, res) {
     res.json({
         message: "Lista dei post",
-        posts: posts
+        posts: menu
     });
 }
 
@@ -40,4 +40,4 @@ function destroy(req, res) {
 }
 
 // esporto
-module.exports = { index, show, store, update, destroy };
+module.exports = { index, show, store, update, modify, destroy };
