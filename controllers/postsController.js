@@ -67,7 +67,8 @@ function destroy(req, res) {
      menu.splice(menu.indexOf(post), 1);
      //stampo in terminale la lista aggiornata
      console.log(menu);
-
+    // ritorno la risposta positiva di avvenuta cancellazione
+    res.sendStatus(204);
 }
 
 // esporto
