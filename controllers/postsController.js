@@ -63,6 +63,10 @@ function destroy(req, res) {
             message: "Post non trovato"
         })
     }
+     // cancello il post trovato
+     menu.splice(menu.indexOf(post), 1);
+     //stampo in terminale la lista aggiornata
+     console.log(menu);
 
 }
 
