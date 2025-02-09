@@ -72,10 +72,10 @@ function store(req, res) {
 function update(req, res) {
     // res.send(`Modifica integrale del post` + req.params.id)
 
-        // recuperiamo l'id dall' URL e trasformiamolo in numero
-        const id = parseInt(req.params.id)
-        // cerchiamo il post per id
-        const post = menu.find(post => post.id === id);
+    // recuperiamo l'id dall' URL e trasformiamolo in numero
+    const id = parseInt(req.params.id)
+    // cerchiamo il post per id
+    const post = menu.find(post => post.id === id);
         // Condizione if
         if (!post) {
 
@@ -88,7 +88,17 @@ function update(req, res) {
                 message: "Post non trovato"
             })
         }
-
+    // modifico i dati del post invididuato
+        post.title = req.body.title;
+        post.content = req.body.content;
+        post.image = req.body.image;
+        post.tags = req.body.tags;     
+    
+        // Stampo in console il menu per un check
+        console.log(menu);
+        
+    // Ritorno l'oggetto modificato
+    res.json(post);
 }
 
 function modify(req, res) {
