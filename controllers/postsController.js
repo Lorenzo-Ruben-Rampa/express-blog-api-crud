@@ -120,16 +120,18 @@ function modify(req, res) {
         })
         }
     //operatore ternario
-    req.body.title ? post.title = req.body.title : post.title = post.title;
-    req.body.image ? post.image = req.body.image : post.image = post.image;
-    req.body.tags ? post.tags = req.body.tags : post.tags = post.tags;
+    if (req.body.title) {
+        post.title = req.body.title;
+    } else {
+        post.title = post.title;
+    }
 
     // stampiamo in console il menu
     console.log(menu);
 
 
     // ritorniamo l'oggetto modificato
-    res.json(pizza);
+    res.json(post);
 }
 
 function destroy(req, res) {
