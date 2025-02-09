@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+// Registro il body-parser per "application/json"
+app.use(express.json());
+
 // Importo il file del routing
 const postsRouter = require('./routers/posts');
 
