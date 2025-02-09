@@ -119,16 +119,22 @@ function modify(req, res) {
                  message: "Post non trovato"
         })
         }
+
+    // condizione if
+    // if (req.body.title) {
+    //     post.title = req.body.title;
+    // } else {
+    //     post.title = post.title;
+    // }
+
     //operatore ternario
-    if (req.body.title) {
-        post.title = req.body.title;
-    } else {
-        post.title = post.title;
-    }
+    req.body.title ? post.title = req.body.title : post.title = post.title;
+    req.body.image ? post.image = req.body.image : post.image = post.image;
+    req.body.content ? post.content = req.body.content : post.content = post.content;
+
 
     // stampiamo in console il menu
     console.log(menu);
-
 
     // ritorniamo l'oggetto modificato
     res.json(post);

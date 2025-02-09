@@ -16,7 +16,7 @@
     "tag",
     "post",
     "title",
-    "name"
+    "content"
   ],
   "author": "Lorenzo Rampa",
   "license": "ISC",
