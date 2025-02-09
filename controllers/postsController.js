@@ -1,5 +1,6 @@
 // Import dei dati
 const menu = require('../data/posts');
+const { post } = require('../routers/posts');
 
 // Funzioni con logica relativa alla rotta dei post
 function index(req, res) {
@@ -48,8 +49,25 @@ function show(req, res) {
  
 
 function store(req, res) {
-    console.log(req.body);
-    res.send(`Creazione nuovo post`);
+    // console.log(req.body);
+    // res.send(`Creazione nuovo post`);
+    // Creo un nuovo id e ritorno l'ultimo elemento id di menu +1
+    const newId = menu[menu.length -1].id +1;
+    // Creo un nuovo oggetto post
+    const newPost = {
+        id: newId,
+        name: req.body.name,
+        content: req.body.content,
+        image: req.body.image,
+        tag: req.body.tags
+    }
+    // Aggiungo il nuovo post al menu
+    menu.push(newPost);
+    console.log(menu);
+
+    // Restituisco lo status 201 e il nuovo post creato
+    res.status(201);
+    res.json(newPost);
 }
 
 function update(req, res) {
