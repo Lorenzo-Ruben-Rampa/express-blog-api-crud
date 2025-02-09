@@ -47,7 +47,6 @@ function show(req, res) {
      res.json(post);
  }
  
-
 function store(req, res) {
     // console.log(req.body);
     // res.send(`Creazione nuovo post`);
@@ -71,11 +70,29 @@ function store(req, res) {
 }
 
 function update(req, res) {
-    res.send(`Modifica integrale del post` + req.params.id)
+    // res.send(`Modifica integrale del post` + req.params.id)
+
+        // recuperiamo l'id dall' URL e trasformiamolo in numero
+        const id = parseInt(req.params.id)
+        // cerchiamo il post per id
+        const post = menu.find(post => post.id === id);
+        // Condizione if
+        if (!post) {
+
+            // ritorno lo stato di errore 404, non trovato
+            res.status(404);
+    
+            // ritorno un messaggio di errore (formato json)
+            return res.json({
+                error: "Not Found",
+                message: "Post non trovato"
+            })
+        }
+
 }
 
 function modify(req, res) {
-    res.send(`Modifica parziale del post` + req.params.id);
+    res.send(`Modifica parziale del post n° ` + req.params.id);
 }
 
 function destroy(req, res) {
