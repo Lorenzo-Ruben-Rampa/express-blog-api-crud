@@ -25,6 +25,9 @@ app.get('/', (req, res) => {
 // Utilizzo la rotta posts per definire la parte iniziale delle rotte
 app.use('/posts', postsRouter)
 
+// utilizzo middleware di gestione errore server 500
+app.use(errorsHandler);
+
 // Utilizzo middleware errore 404
 app.use(notFound);
 
