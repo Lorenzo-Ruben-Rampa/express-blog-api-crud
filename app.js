@@ -12,7 +12,7 @@ const postsRouter = require('./routers/posts');
 const errorsHandler = require("./middlewares/errorsHandler");
 
 // Importo il middleware dell'errore 404
-const notFound = required("./middlewares/notFound");
+const notFound = require("./middlewares/notFound");
 
 // Definisco una cartella per i file statici
 app.use(express.static('public'));
