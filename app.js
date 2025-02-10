@@ -8,6 +8,12 @@ app.use(express.json());
 // Importo il file del routing
 const postsRouter = require('./routers/posts');
 
+// Importo il middleware dell'errore 500
+const errorsHandler = require("./middlewares/errorsHandler");
+
+// Importo il middleware dell'errore 404
+const notFound = required("./middlewares/notFound");
+
 // Definisco una cartella per i file statici
 app.use(express.static('public'));
 
@@ -18,6 +24,9 @@ app.get('/', (req, res) => {
 
 // Utilizzo la rotta posts per definire la parte iniziale delle rotte
 app.use('/posts', postsRouter)
+
+// Utilizzo middleware errore 404
+app.use(notFound);
 
 // Avvio server
 app.listen(port, () => {
