@@ -1,6 +1,12 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const cors = require("cors");
+
+//Definisco il cors
+app.use(cors({
+	origin: 'http://localhost:5173'
+}));
 
 // Registro il body-parser per "application/json"
 app.use(express.json());
@@ -19,7 +25,7 @@ app.use(express.static('public'));
 
 // Definisco la rotta home
 app.get('/', (req, res) => {
-	res.send( 'Server del mio blog')
+	res.send('Server del mio blog')
 })
 
 // Utilizzo la rotta posts per definire la parte iniziale delle rotte
