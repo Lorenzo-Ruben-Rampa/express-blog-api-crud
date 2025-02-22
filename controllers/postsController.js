@@ -1,6 +1,6 @@
 // Import dei dati
 const menu = require('../data/posts');
-const { post } = require('../routers/posts');
+// const { post } = require('../routers/posts');
 
 //Es react api INIZIO
 const express = require('express');
@@ -27,9 +27,9 @@ function index(req, res) {
     let filteredMenu = menu;
 
     // Se la richiesta contiene un filtro tag, filtro il menu
-    if (req.query.tag) {
+    if (req.query.tags) {
         filteredMenu = menu.filter(
-            post => post.tags.includes(req.query.tag)
+            post => post.tags.includes(req.query.tags)
         );
     }
 
@@ -69,10 +69,10 @@ function store(req, res) {
     // Creo un nuovo oggetto post
     const newPost = {
         id: newId,
-        name: req.body.title,
+        title: req.body.title,
         content: req.body.content,
         image: req.body.image,
-        tag: req.body.tags
+        tags: req.body.tags
     }
     // Aggiungo il nuovo post al menu
     menu.push(newPost);
