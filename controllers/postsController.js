@@ -69,7 +69,7 @@ function store(req, res) {
     // Creo un nuovo oggetto post
     const newPost = {
         id: newId,
-        name: req.body.name,
+        name: req.body.title,
         content: req.body.content,
         image: req.body.image,
         tag: req.body.tags
